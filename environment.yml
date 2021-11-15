@@ -1,0 +1,12 @@
+name: rise_dash
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pylint
+  - pandas
+  - dash
+  - nodejs
+  - pip
+  - pip:
+      - -e .
