@@ -1,23 +1,21 @@
-from dash import Input, Output, dcc, html
+from dash import Input, Output, dcc, html, State
 
 from .app import app
-from .pages.home import home_page_layout
-from .pages.sandbox import sanbox_page_layout
 
-app.layout = html.Div(
-    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")],
-    className="bg-gray-200",
-)
+from .components.sidebar import sidebar_component
+
+from .pages.home import home_page_layout
+from .pages.error import error_page_layout
+
+app.layout = sidebar_component()
 
 
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page(pathname):
     if pathname == "/":
-        return home_page_layout
-    elif pathname == "/sandbox":
-        return sanbox_page_layout
+        return home_page_layout()
     else:
-        return "404"
+        return error_page_layout(error_msg="404 | Page not found")
 
 
 def launch_server(debug: bool = True):

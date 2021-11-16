@@ -3,10 +3,11 @@ channels:
   - conda-forge
 dependencies:
   - python
-  - pylint
-  - pandas
-  - dash
   - nodejs
   - pip
   - pip:
+      - pylint
+      - pandas
+      - dash
+      - dash-dangerously-set-inner-html
       - -e .
