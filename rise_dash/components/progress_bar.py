@@ -4,7 +4,7 @@ from dash import html
 def progress_bar_component(
     label: str = None, value: int = 0, change: str = None, color: str = None
 ) -> html.Div:
-    label = html.Dt(label, className="text-sm font-medium truncate")
+    label = html.Dt(label, className="text-sm font-medium truncate")  # type: ignore
     data = html.Dd(
         html.Div(
             [
@@ -26,4 +26,4 @@ def progress_bar_component(
             className="flex items-center justify-between gap-2",
         )
     )
-    return html.Div(children=[label, data], className="text-gray-500")
+    return html.Div([label, data], className="text-gray-500")
