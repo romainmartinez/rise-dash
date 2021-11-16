@@ -17,7 +17,7 @@ def progress_bar_component(
                 ),
                 html.P(
                     change,
-                    className="text-sm font-semibold flex items-center h-full "
+                    className="flex items-center h-full text-sm font-semibold "
                     + "text-green-600"
                     if color == "green"
                     else "text-red-600",

@@ -1,0 +1,9 @@
+{
+  "python.pythonPath": "/Users/romar/miniconda/envs/rise_dash/bin/python",
+  "tailwindCSS.includeLanguages": {
+    "python": "javascriptreact"
+  },
+  "headwind.classRegex": {
+    "python": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)"
+  }
+}
