@@ -1,8 +1,8 @@
-from dash import Input, Output, dcc, html, State
+from dash import Input, Output
 
 from .app import app
 
-from .components.sidebar import sidebar_component
+from .components import sidebar_component
 
 from .pages.home import home_page_layout
 from .pages.error import error_page_layout

@@ -50,3 +50,23 @@ def document_text_icon(className: str = None):
 </svg>
     """
     )
+
+
+def arrow_up_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+</svg>
+    """
+    )
+
+
+def arrow_down_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+</svg>
+    """
+    )
