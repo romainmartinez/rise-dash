@@ -11,30 +11,38 @@ from ..components import (
 
 def header_dropdowns() -> html.Div:
     options = get_dropdowns_options()
+
     customer = dropdown_component(
         "Customer",
-        options=[
-            {"label": "Air Asia", "value": "ASIA"},
-        ],
         id="customer-dropdown",
-        value="ASIA",
+        options=options["customers"],
+        value=options["customers"][0]["value"],
     )
     training_program = dropdown_component(
         "Training Program",
-        options=[
-            {"label": "New York City", "value": "NYC"},
-        ],
         id="training-program-dropdown",
-        value="NYC",
+        options=options["training_programs"],
+        value=options["training_programs"][0]["value"],
+        searchable=False,
     )
     training_cycle = dropdown_component(
-        "Training Cycle", options=[], id="training-cycle-dropdown", value=""
+        "Training Cycle",
+        id="training-cycle-dropdown",
+        options=options["training_cycles"],
+        value=options["training_cycles"][0]["value"],
     )
     platform = dropdown_component(
-        "Platform", options=[], id="platform-dropdown", value=""
+        "Platform",
+        id="platform-dropdown",
+        options=options["platforms"],
+        value=options["platforms"][0]["value"],
     )
     grading_approach = dropdown_component(
-        "Grading Approach", options=[], id="grading-approach-dropdown", value=""
+        "Grading Approach",
+        options=options["grading_approaches"],
+        id="grading-approach-dropdown",
+        value=options["grading_approaches"][0]["value"],
+        searchable=False,
     )
     return html.Div(
         [customer, training_program, training_cycle, platform, grading_approach],
