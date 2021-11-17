@@ -81,3 +81,26 @@ def get_challenges_based_on_telemetry() -> list:
         {"name": "CAT II/III approach", "value": 2, "change": "+1%", "color": "red"},
         {"name": "Take-Off", "value": 1, "change": "+1%", "color": "red"},
     ]
+
+
+def get_top_foqa_events() -> list:
+    return [
+        {
+            "name": "Unstable Landing",
+            "values": [0, 10, 15, 12, 9, 23, 30, 45, 50, 52],
+            "change": "+1%",
+            "color": "red",
+        },
+        {
+            "name": "Unstable Approach",
+            "values": [40, 38, 33, 39, 43, 45, 42, 30, 32, 30],
+            "change": "-2%",
+            "color": "green",
+        },
+        {
+            "name": "Flight Operations",
+            "values": [70, 60, 55, 54, 53, 47, 43, 20, 12, 10],
+            "change": "-2%",
+            "color": "green",
+        },
+    ]

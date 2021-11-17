@@ -4,3 +4,4 @@ from .dropdown import dropdown_component
 from .icons import *
 from .progress_bar import progress_bar_component
 from .sidebar import sidebar_component
+from .sparkline import sparkline_component

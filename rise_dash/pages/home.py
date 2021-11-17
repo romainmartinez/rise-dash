@@ -5,6 +5,7 @@ from ..api.home import (
     get_overview_stats,
     get_challenges_based_on_grades,
     get_challenges_based_on_telemetry,
+    get_top_foqa_events,
 )
 
 from ..components import (
@@ -13,6 +14,7 @@ from ..components import (
     dropdown_component,
     main_container_component,
     progress_bar_component,
+    sparkline_component,
 )
 
 
@@ -95,7 +97,15 @@ def challenge_column(title: str, challenges: list) -> html.Div:
 
 def top_events_column(title: str) -> html.Div:
     title = html.H3(title, className="text-lg font-medium leading-7")  # type:ignore
-    graphs = html.Div()
+    graphs = html.Div(
+        [
+            sparkline_component(
+                event["name"], event["change"], event["color"], event["values"]
+            )
+            for event in get_top_foqa_events()
+        ],
+        className="mt-4 space-y-4",
+    )
     return card_component([title, graphs])
 
 
