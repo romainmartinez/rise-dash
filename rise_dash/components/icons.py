@@ -70,3 +70,53 @@ def arrow_down_icon(className: str = None):
 </svg>
     """
     )
+
+
+def delta_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="currentColor" viewBox="0 0 100 100">
+  <polygon points="50 15, 100 100, 0 100" />
+</svg>
+    """
+    )
+
+
+def users_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+</svg>
+    """
+    )
+
+
+def shield_exclamation_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
+</svg>
+    """
+    )
+
+
+def clipboard_check_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+</svg>
+    """
+    )
+
+
+def view_grid_add_icon(className: str = None):
+    return DangerouslySetInnerHTML(
+        f"""
+<svg class="{className}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+</svg>
+    """
+    )

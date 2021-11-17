@@ -87,7 +87,7 @@ def sidebar_component() -> html.Div:
             "© 2021 CAE, Inc. All rights reserved.",
             className="text-center text-gray-400",
         ),
-        className="px-8 py-12 mx-auto overflow-hidden",
+        className="mx-auto overflow-hidden p-7",
     )
 
     content = html.Div(

@@ -1,8 +1,15 @@
 from dash import html
 
 from ..api.dropdown import get_dropdowns_options
+from ..api.home import (
+    get_overview_stats,
+    get_challenges_based_on_grades,
+    get_challenges_based_on_telemetry,
+)
+
 from ..components import (
-    box_component,
+    card_component,
+    stat_card_component,
     dropdown_component,
     main_container_component,
     progress_bar_component,
@@ -50,17 +57,36 @@ def header_dropdowns() -> html.Div:
     )
 
 
-def challenge_column(title: str) -> html.Div:
+def overview_stats() -> html.Div:
+    stats = get_overview_stats()
+    return html.Div(
+        [
+            stat_card_component(
+                stat["name"],
+                stat["icon"],
+                stat["stat"],
+                stat["change"],
+                stat["description"],
+                stat["color"],
+                stat["is_last_cycle"],
+            )
+            for stat in stats.values()
+        ],
+        className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4",
+    )
+
+
+def challenge_column(title: str, challenges: list) -> html.Div:
     title = html.H3(title, className="text-lg font-medium leading-7")  # type:ignore
     bar_charts = html.Div(
         [
             progress_bar_component(
-                label="Take-Off with Engine Failure",
-                value=i * 10 + 10,
-                change="-2%",
-                color="green",
+                label=challenge["name"],
+                value=challenge["value"],
+                change=challenge["change"],
+                color=challenge["color"],
             )
-            for i in range(6, 0, -1)
+            for challenge in challenges
         ],
         className="mt-4 space-y-4",
     )
@@ -69,15 +95,13 @@ def challenge_column(title: str) -> html.Div:
 
 def top_events_column(title: str) -> html.Div:
     title = html.H3(title, className="text-lg font-medium leading-7")  # type:ignore
-    return box_component([title])
+    graphs = html.Div()
+    return card_component([title, graphs])
 
 
 def home_page_layout() -> html.Div:
     header = header_dropdowns()
-    stats = html.Div(
-        "Stats",
-        className="flex items-center justify-center h-40 text-blue-700 bg-blue-200 border border-blue-700 rounded-lg",
-    )
+    stats = overview_stats()
     challenges = html.Div(
         [
             html.H2(
@@ -86,9 +110,15 @@ def home_page_layout() -> html.Div:
             ),
             html.Div(
                 [
-                    challenge_column("Based on Grades"),
-                    challenge_column("Based on Telemetry"),
-                    challenge_column("Your Watchlist"),
+                    challenge_column(
+                        "Based on Grades", get_challenges_based_on_grades()
+                    ),
+                    challenge_column(
+                        "Based on Telemetry", get_challenges_based_on_telemetry()
+                    ),
+                    challenge_column(
+                        "Your Watchlist", get_challenges_based_on_telemetry()
+                    ),
                     top_events_column("Top FOQA Events"),
                 ],
                 className="grid grid-cols-1 gap-5 mt-4 divide-x sm:grid-cols-2 lg:grid-cols-4",
@@ -97,7 +127,7 @@ def home_page_layout() -> html.Div:
     )
     return main_container_component(
         content=html.Div(
-            [header, stats, challenges], className="space-y-6"  # type:ignore
+            [header, stats, challenges], className="space-y-10"  # type:ignore
         ),
         title="Overview",
         last_update="November 10",

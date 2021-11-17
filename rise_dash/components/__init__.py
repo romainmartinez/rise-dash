@@ -1,4 +1,4 @@
-from .box import box_component
+from .card import card_component, stat_card_component
 from .container import main_container_component
 from .dropdown import dropdown_component
 from .icons import *
