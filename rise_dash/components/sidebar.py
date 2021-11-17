@@ -3,7 +3,7 @@ from dash import dcc, html
 from . import icons
 
 nav_items = [
-    {"name": "Home", "href": "/", "icon": "home", "current": True},
+    {"name": "Overview", "href": "/", "icon": "home", "current": True},
     {
         "name": "Training Events",
         "href": "/training-events",

@@ -1,12 +1,11 @@
 from dash import html
 
+from ..components.container import main_container_component
 from ..components.box import box_component
 from ..components.progress_bar import progress_bar_component
 
 
 def home_page_layout() -> html.Div:
-    title = html.Div(html.H1("Home"), className="text-2xl font-bold text-center")
-
     sanbox_component = html.Div(
         [
             progress_bar_component(
@@ -22,7 +21,14 @@ def home_page_layout() -> html.Div:
 
     box = box_component(sanbox_component)
 
-    return html.Div(
-        [title, box],
-        className="flex flex-col justify-center min-h-screen gap-5 px-8 py-12",
+    header = []
+    stats = []
+    challenges = []
+
+    return main_container_component(
+        content=html.Div(
+            [box],
+        ),
+        title="Overview",
+        last_update="November 10",
     )
